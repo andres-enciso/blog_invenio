@@ -1,36 +1,32 @@
 @extends('layout.base')
 
-@section('title', 'Dashboard')
+@section('title', 'Formulario')
 
 @section('style')
 @parent
 <link rel="stylesheet" href="{{asset('vendors/tagin/tagin.min.css')}}">
 <link rel="stylesheet" href="{{asset('vendors/bootstrap5-tags/bootstrap5-tags.min.css')}}">
-
 @endsection
 @section('container')
 
 <section id="content" class="content">
     <div class="content__header content__boxed overlapping">
         <div class="content__wrap">
-
             <h1 class="page-title mb-0 mt-2">Blog</h1>
-
             <p class="lead">
                 Crear Articulo
             </p>
-
             <div class="d-md-flex align-items-baseline mt-3">
-                <button type="button" class="btn btn-light hstack gap-2 mb-3">
-                    <i class="demo-psi-add fs-4"></i>
-                    <span class="vr"></span>
-                    Regresar
-                </button>
-
+                <a href="{{route('index')}}">
+                    <button type="button" class="btn btn-light hstack gap-2 mb-3">
+                        <i class="demo-psi-add fs-4"></i>
+                        <span class="vr"></span>
+                        Regresar
+                    </button>
+                </a>
             </div>
-        </div>
+        </div>  
     </div>
-
     <div class="content__boxed">
         <div class="content__wrap">
             <div class="row">
@@ -45,12 +41,10 @@
                                 <form class="row g-3" action="{{route('post.entrada')}}" method="POST" enctype="multipart/form-data">
                                     @endif
                                     @CSRF
-
                                     <div class="col-md-8">
                                         <label class="form-label">Título</label>
                                         <input type="text" name="titulo" @isset($entrada) value="{{ $entrada->titulo}}" @endisset class="form-control" placeholder="enuncia el contenido de la entrada." required>
                                     </div>
-
                                     <div class="col-md-4">
                                         <label class="form-label">Tipo</label>
                                         <select class="form-select" name="tipo[]" multiple data-allow-new="true" data-allow-clear="true" required>
@@ -66,13 +60,11 @@
                                         <button type="submit" class="btn btn-primary">Guardar</button>
                                     </div>
                                 </form>
-                                <!-- END : Block styled form -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 @endsection

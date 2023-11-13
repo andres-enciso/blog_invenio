@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("login", [AuthController::class, "login"])->name('login')->middleware('checkSession');
-Route::post("postLogin", [AuthController::class, "postLogin"])->name('post.login')->middleware('checkSession');
+Route::get("login", [AuthController::class, "login"])->name('login');
+Route::post("postLogin", [AuthController::class, "postLogin"])->name('post.login');
 
 Route::get("inicio", [BlogController::class, "index"])->name('index')->middleware('checkSession');
 

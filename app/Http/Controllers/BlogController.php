@@ -28,8 +28,16 @@ class BlogController extends Controller
                 "entrada" => EntradasModel::getEntrada($type)
             ];
         }
-        //dd($vars);
         return view('form', $vars);
+    }
+
+    public function detalle(Request $request)
+    {
+        $type = $request->any;
+        $vars = [
+            "entrada" => EntradasModel::getEntrada($type)
+        ];
+        return view('detalle', $vars);
     }
 
     public function postEntrada(Request $request)
@@ -61,4 +69,3 @@ class BlogController extends Controller
         return view('listado', ['entradas' => $band]);
     }
 }
-

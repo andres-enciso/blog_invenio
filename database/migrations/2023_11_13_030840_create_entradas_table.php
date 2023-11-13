@@ -14,7 +14,8 @@ return new class extends Migration
             $table->string('autor');
             $table->date('fecha_publicacion');
             $table->text('contenido');
-            $table->timestamps(); // Añade created_at y updated_at automáticamente
+            $table->string('tipo');
+            $table->timestamps(); // Esto creará automáticamente las columnas created_at y updated_at
         });
     }
 
