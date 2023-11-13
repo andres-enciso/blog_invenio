@@ -61,3 +61,4 @@ class BlogController extends Controller
         return view('listado', ['entradas' => $band]);
     }
 }
+
